@@ -1,14 +1,18 @@
 import React from "react";
 import SearchBar from './SearchBar';
-import google from '../apis/googleBooks'
+import google from '../apis/googleBooks';
+import BookList from './BookList'
 
 class App extends React.Component{
-    onTermSubmit = (term) => {
-        google.get('/search', {
+    state = {books: []};
+
+    onTermSubmit = async term => {
+        const response = await google.get('/search', {
             params:{
                 q: term
             }
-        })
+        });        
+        this.setState({books: response.data.items});
     };
 
     render(){
@@ -17,6 +21,7 @@ class App extends React.Component{
                 <SearchBar
                     onFormSubmit = {this.onTermSubmit}
                 />
+                <BookList books = {this.state.books}></BookList>
             </div>
         );
     }
