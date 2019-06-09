@@ -1,32 +1,20 @@
 import React from 'react';
 import BookItem from './BookItem'
-/*
-const BookList = ({books}) => {
-    const renderedList = books.map((book) => {
-        return <BookItem book = {book}></BookItem>
-    });
 
-    return (
-        <div>
-            {renderedList}
-        </div>
-    )
-}
-
-export default BookList;
-
-*/
-
-
-const BookList = ({ books }) => {
+const BookList = ({ books, onBookSelect }) => {
     
     const renderedList = books.map((book) => {
-        return <BookItem book={book}></BookItem>
-    });
-    
+        return( 
+            <BookItem 
+                onBookSelect = {onBookSelect}
+                book={book} 
+            >
+
+            </BookItem>)
+    });    
 
     return (
-        <div>
+        <div className="ui list">
             {renderedList}
         </div>
     )

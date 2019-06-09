@@ -1,31 +1,21 @@
 import React from 'react'
 import defaultPic from '../default.png'
 
-/*
-const BookItem = ({book}) => {
+const BookItem = ({ book, onBookSelect}) => {
     return (
-        <div>
-            <img src={book.volumeInfo.imageLinks.thumbnail} />
-            {book.volumeInfo.title}
+
+        <div 
+            onClick = {() => onBookSelect(book)}
+            className="item book" 
+            key={book.volumeInfo.id}>
+            <img className="ui image" src={displayImageSrc(book.volumeInfo.imageLinks)} alt={book.volumeInfo.title} />
+            <div className="content">
+                <div className="book__title header">{displayTitle(book.volumeInfo.title)}</div>
+                <div className="book__author">Author: {displayAuthor(book.volumeInfo.authors)}</div>                    
+                <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer" className="book__btn">See this Book</a>
+            </div>
         </div>
-    )
-};
 
-export default BookItem;
-
-*/
-
-
-const BookItem = ({ book }) => {
-    //const {volumeInfo: {authors, title, publisher, imageLinks, infoLink } } = book;
-    return (
-        <div className="book" key={book.volumeInfo.id}>
-            <img src={displayImageSrc(book.volumeInfo.imageLinks)} alt={book.volumeInfo.title} />
-            <div className="book__author">By: {displayAuthor(book.volumeInfo.authors)}</div>
-            <div className="book__title">{displayTitle(book.volumeInfo.title)}</div>
-            <div className="book__publisher">Published By: {displayPublisher(book.volumeInfo.publisher)}</div>
-            <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer" className="book__btn">See this Book</a>
-        </div>
     )
     
     function displayImageSrc(imageLinks) {
@@ -40,9 +30,6 @@ const BookItem = ({ book }) => {
         return title ? title.slice(0, 60) : 'N/A';
     }
 
-    function displayPublisher(publisher) {
-        return publisher ? publisher.slice(0, 60) : 'N/A';
-    }
 }
 
 export default BookItem;
