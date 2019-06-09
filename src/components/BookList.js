@@ -1,8 +1,16 @@
 import React from 'react';
+import BookItem from './BookItem'
 
-const BookList = (props) => {
-    //props.books
-    return <div>{props.books.length}</div>
+const BookList = ({books}) => {
+    const renderedList = books.map((book) => {
+        return <BookItem></BookItem>
+    });
+
+    return (
+        <div>
+            {renderedList}
+        </div>
+    )
 }
 
 export default BookList;
