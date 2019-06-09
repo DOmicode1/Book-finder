@@ -1,4 +1,5 @@
 import React from 'react';
+//import books from '../apis/googleBooks';
 
 class SearchBar extends React.Component{
     state = {term: ''};
@@ -8,6 +9,7 @@ class SearchBar extends React.Component{
     onFormSubmit = event => {
         event.preventDefault();//prevents refreshing app
         this.props.onFormSubmit(this.state.term);
+        console.log(this.state.term)
     };
 
     render(){
@@ -25,9 +27,10 @@ class SearchBar extends React.Component{
                         />
                     </div>
                 </form>
-            </div>
+                </div>
         );
     }
 }
 
 export default SearchBar;
+
