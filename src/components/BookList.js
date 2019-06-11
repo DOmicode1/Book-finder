@@ -6,10 +6,10 @@ const BookList = ({ books, onBookSelect }) => {
     const renderedList = books.map((book) => {
         return( 
             <BookItem 
+                key={book.id}
                 onBookSelect = {onBookSelect}
                 book={book} 
             >
-
             </BookItem>)
     });    
 

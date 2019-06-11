@@ -1,5 +1,7 @@
+import './BookItem.css'
 import React from 'react'
 import defaultPic from '../default.png'
+
 
 const BookItem = ({ book, onBookSelect}) => {
     return (

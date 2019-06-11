@@ -14,7 +14,11 @@ class App extends React.Component{
                 maxResults: 5
             }
         });        
-        this.setState({books: response.data.items});                
+        this.setState({
+            books: response.data.items,
+            selctedBook: response.data.items[0]
+        
+        });                
     };
 
     onBookSelect = (book) => {
